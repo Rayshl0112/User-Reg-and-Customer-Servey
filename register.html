@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="form-container">
+    <header>
+        <h1>User Registration</h1>
+    </header>
+	<!-- Section 1: Username and Password -->
+    <form id="registerForm" method="POST">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+        </div>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <div id="password-message">
+        <h3>Password must contain:</h3>
+        <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+        <p id="capital" class="invalid">A <b>capital</b> letter</p>
+        <p id="number" class="invalid">A <b>number</b></p>
+        <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+    </div>
+<!-- Section 2: After Registering -->
+    <div id="contentToShow">
+        <p><strong>Thank you for Registering!</strong></p>
+        <p>Please answer this survey before exiting.</p>
+        <a href="survey.html" class="survey-link">Go to Survey</a>
+    </div>
+
+    <footer>
+        <p>© 2024 Registration System</p>
+    </footer>
+</div>
+
+<script>
+const form = document.getElementById("registerForm");
+const password = document.getElementById("password");
+const confirmPassword = document.getElementById("confirmPassword");
+const passwordMessage = document.getElementById("password-message");
+const contentToShow = document.getElementById("contentToShow");
+
+const letter = document.getElementById("letter");
+const capital = document.getElementById("capital");
+const number = document.getElementById("number");
+const length = document.getElementById("length");
+
+password.addEventListener("focus", () => {
+    passwordMessage.style.display = "block";
+});
+<!-- Section 3: for guidelines for password-->
+password.addEventListener("keyup", () => {
+    /[a-z]/.test(password.value)
+        ? letter.classList.replace("invalid", "valid")
+        : letter.classList.replace("valid", "invalid");
+
+    /[A-Z]/.test(password.value)
+        ? capital.classList.replace("invalid", "valid")
+        : capital.classList.replace("valid", "invalid");
+
+    /\d/.test(password.value)
+        ? number.classList.replace("invalid", "valid")
+        : number.classList.replace("valid", "invalid");
+
+    password.value.length >= 8
+        ? length.classList.replace("invalid", "valid")
+        : length.classList.replace("valid", "invalid");
+});
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    if (password.value !== confirmPassword.value) {
+        alert("Passwords do not match!");
+        return;
+    }
+
+    passwordMessage.style.display = "none";
+    contentToShow.style.display = "block";
+    form.reset();
+});
+</script>
+
+</body>
+</html>

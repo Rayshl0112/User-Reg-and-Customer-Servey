@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Survey</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="form-container">
+    <header>
+        <h1>Customer Experience Survey</h1>
+    </header>
+
+    <form id="surveyForm" method="POST">
+        <!-- Section 1: Personal Identification -->
+        <div class="form-section">
+            <h2>Personal Information</h2>
+            
+            <div class="form-group">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Section 2: Experience Rating -->
+        <div class="form-section boxed-section">
+            <div class="section-header">
+                <h2>Overall Satisfaction</h2>
+            </div>
+            
+            <div class="radio-group">
+                <input type="radio" id="verySatisfied" name="satisfaction" value="verySatisfied" required>
+                <label for="verySatisfied">Very Satisfied</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="neutral" name="satisfaction" value="neutral">
+                <label for="neutral">Neutral</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="unsatisfied" name="satisfaction" value="unsatisfied">
+                <label for="unsatisfied">Unsatisfied</label>
+            </div>
+        </div>
+
+        <div class="form-section boxed-section">
+            <div class="section-header">
+                <h2>Which features did you use?</h2>
+            </div>
+            
+            <div class="checkbox-group">
+                <input type="checkbox" id="liveChat" name="features" value="liveChat">
+                <label for="liveChat">Live Chat</label>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="knowledgeBase" name="features" value="knowledgeBase">
+                <label for="knowledgeBase">Knowledge Base</label>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="phoneSupport" name="features" value="phoneSupport">
+                <label for="phoneSupport">Phone Support</label>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="emailSupport" name="features" value="emailSupport">
+                <label for="emailSupport">Email Support</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="hearAbout">How did you hear about us?</label>
+            <select id="hearAbout" name="hearAbout">
+                <option value="">-- Please Select --</option>
+                <option value="social">Social Media</option>
+                <option value="friend">Friend</option>
+                <option value="ad">Advertisement</option>
+                <option value="search">Search Engine</option>
+            </select>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Section 3: Detailed Feedback -->
+        <div class="form-section">
+            <h2>Detailed Feedback</h2>
+            
+            <div class="form-group">
+                <label for="serviceDate">Date of Service:</label>
+                <input type="date" id="serviceDate" name="serviceDate">
+            </div>
+
+            <div class="form-group">
+                <label for="frequency">Frequency of Use (times per month):</label>
+                <input type="number" id="frequency" name="frequency" min="1" max="30">
+            </div>
+
+            <div class="form-group">
+                <label for="suggestions">Suggestions for Improvement:</label>
+                <textarea id="suggestions" name="suggestions" rows="6" 
+                          placeholder="Please share your suggestions..."></textarea>
+            </div>
+        </div>
+
+        <!-- Section 4: Form Actions -->
+        <div class="form-actions"><center>
+            <button type="submit">Send Feedback</button>
+            <button type="reset">Clear Form</button>
+			<a href="register.html">
+				<button type="button">Home</button>
+</a>
+        </div>
+    </form>
+
+    <div class="thank-you-box">
+        <div class="thank-you-content">
+            <h3>Thank you for your feedback!</h3>
+            <p>Your responses help us improve our services.</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
